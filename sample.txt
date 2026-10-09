@@ -1,4 +1,53 @@
-Contact Jane Doe at jane@example.com. SSN: 123-45-6789.
-employee ram working in cse department belongs to chennai
-jane works in that department 
+CADENCE INTERNAL - EMPLOYEE PROCESS DOCUMENT
+Version 3.2 | Policy approved on 18 June 2026 | Effective from 01 July 2026
 
+SECTION 1: PURPOSE
+This document describes the onboarding, leave and payroll process for the
+Technical Department and the Finance Department. The Employee Handbook
+remains the primary reference. Invoice INV-2026-00457 and Purchase Order
+PO-778812 relate to the vendor contract and are not personal records.
+
+SECTION 2: EMPLOYEE RECORDS
+Employee: Rahul Kumar
+Employee ID: EMP-40318
+Email: rahul.kumar@gmail.com
+Phone: 9876543210
+Government ID: XXXXXXXX
+DOB: 14 July 1991
+Address: 12 MG Road, Srirangam, Trichy, Tamil Nadu
+PIN: 620006
+
+Name: Priya Natarajan
+Employee ID: EMP-40377
+Email: priya.n@cadence-demo.com
+Mobile: +91 98765 43211
+Date of Birth: 03 March 1988
+PAN AQBPR7741L
+Passport TK4820913
+
+Ankit works for the technical department and reports to Dr. Meera Iyer.
+Employee Sanjay joined the Finance Department last year.
+Mr. Arun Prakash will act as the backup approver.
+
+SECTION 3: DIRECTOR DETAILS
+Director: Vikram Sethi (DIR-0042)
+Contact: vikram.sethi@cadence-demo.com, Phone: +1 212 555-0147
+SSN 123-45-6789
+
+SECTION 4: PAYROLL AND BANK DETAILS
+Salary for Rahul Kumar is credited to Account Number 004512398765 at the
+Trichy branch. The company card ending 1111 is Visa 4111 1111 1111 1111.
+Polish contractor Jan Nowak, PESEL 44051401359, is paid monthly.
+
+SECTION 5: NARRATIVE NOTES
+During the review meeting on 22 August 2026, Priya mentioned that Rahul had
+shared his home address with HR and that his mobile number 9876543210 should
+be used for emergencies. Sanjay can also be reached at sanjay.r@cadence-demo.com.
+The audit team approved 14 process changes and 250 leave requests this quarter.
+Total budget: 4500000 INR across 6 departments.
+
+SECTION 6: APPROVALS
+Prepared by: Neha Verma
+Reviewed by: Karthik Subramanian
+Approved by: Meera Iyer
+Date approved: 18 June 2026
