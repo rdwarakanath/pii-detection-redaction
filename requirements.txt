@@ -1,0 +1,20 @@
+# PaddleOCR PP-StructureV3 + PaddleOCR-VL fallback.
+# Versions observed in the tested environment; pin PaddleOCR/PaddleX to avoid API drift:
+# Paddle's GPU wheel is hosted on its CUDA-specific index, not the default PyPI index.
+--extra-index-url https://www.paddlepaddle.org.cn/packages/stable/cu126/
+paddlepaddle-gpu==3.2.1
+# Keep Paddle's declared cuDNN dependency (9.5.1.17 for this wheel); do not override it with a conflicting cuDNN pin.
+paddleocr[doc-parser]==3.7.0
+paddlex==3.7.2
+
+# PDF, raster processing, and native text extraction
+numpy>=1.24,<3
+opencv-python-headless>=4.8,<5
+PyMuPDF>=1.24.3,<2
+
+# Tesseract is the final-resort OCR tier; the executable and language data are separate system installs.
+# The Tesseract executable and language data are separate system installs.
+pytesseract>=0.3.10,<1
+
+# Optional output helper used by PaddleOCR result export where supported.
+python-docx

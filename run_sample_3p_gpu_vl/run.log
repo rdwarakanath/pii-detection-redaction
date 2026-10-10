@@ -1,0 +1,224 @@
+DEBUG [pytesseract] ['tesseract', 'C:\\Users\\Asus-2025\\AppData\\Local\\Packages\\sandbox.{79d1823f-64d1-4e1c-a9b0-941a5fcbe4d6}\\AC\\Temp\\tess_soafnski_input.PNG', 'C:\\Users\\Asus-2025\\AppData\\Local\\Packages\\sandbox.{79d1823f-64d1-4e1c-a9b0-941a5fcbe4d6}\\AC\\Temp\\tess_soafnski', '-l', 'osd', '--psm', '0', '-c', 'min_characters_to_try=40']
+Creating model: ('PP-DocBlockLayout', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-DocBlockLayout`.
+INFO: Could not find files for the given pattern(s).
+D:\ocrr\First_pipeline\.pipeline\lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+W1010 01:05:45.465348 27988 gpu_resources.cc:114] Please NOTE: device: 0, GPU Compute Capability: 8.6, Driver API Version: 12.7, Runtime API Version: 12.6
+Creating model: ('PP-DocLayout_plus-L', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-DocLayout_plus-L`.
+Creating model: ('PP-OCRv5_server_det', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-OCRv5_server_det`.
+Creating model: ('PP-OCRv5_server_rec', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-OCRv5_server_rec`.
+Creating model: ('PP-LCNet_x1_0_table_cls', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-LCNet_x1_0_table_cls`.
+Creating model: ('SLANeXt_wired', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\SLANeXt_wired`.
+Creating model: ('SLANet_plus', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\SLANet_plus`.
+Creating model: ('RT-DETR-L_wired_table_cell_det', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\RT-DETR-L_wired_table_cell_det`.
+Creating model: ('RT-DETR-L_wireless_table_cell_det', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\RT-DETR-L_wireless_table_cell_det`.
+W1010 01:06:26.508929 27988 gpu_resources.cc:243] WARNING: device: 0. The installed Paddle is compiled with CUDNN 9.9, but CUDNN version in your machine is 9.5, which may cause serious incompatible bug. Please recompile or reinstall Paddle with compatible CUDNN version.
+Creating model: ('PP-LCNet_x1_0_doc_ori', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-LCNet_x1_0_doc_ori`.
+Creating model: ('PP-LCNet_x1_0_textline_ori', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-LCNet_x1_0_textline_ori`.
+Creating model: ('PP-OCRv5_server_det', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-OCRv5_server_det`.
+Creating model: ('PP-OCRv5_server_rec', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-OCRv5_server_rec`.
+Creating model: ('PP-DocLayoutV3', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-DocLayoutV3`.
+Creating model: ('PaddleOCR-VL-1.6-0.9B', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PaddleOCR-VL-1.6`.
+Bucketed engine_config has no entry for resolved engine 'paddle_dynamic'; using an empty config for that engine.
+Loading configuration file C:\Users\Asus-2025\.paddlex\official_models\PaddleOCR-VL-1.6\config.json
+Loading weights file C:\Users\Asus-2025\.paddlex\official_models\PaddleOCR-VL-1.6\model.safetensors
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+D:\ocrr\First_pipeline\.pipeline\lib\site-packages\paddle\utils\decorator_utils.py:420: Warning: 
+Non compatible API. Please refer to https://www.paddlepaddle.org.cn/documentation/docs/en/develop/guides/model_convert/convert_from_pytorch/api_difference/torch/torch.split.html first.
+  warnings.warn(
+Loaded weights file from disk, setting weights to model.
+All model checkpoint weights were used when initializing PaddleOCRVLForConditionalGeneration.
+
+All the weights of PaddleOCRVLForConditionalGeneration were initialized from the model checkpoint at C:\Users\Asus-2025\.paddlex\official_models\PaddleOCR-VL-1.6.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use PaddleOCRVLForConditionalGeneration for predictions without further training.
+Loading configuration file C:\Users\Asus-2025\.paddlex\official_models\PaddleOCR-VL-1.6\generation_config.json
+D:\ocrr\First_pipeline\.pipeline\lib\site-packages\paddle\tensor\creation.py:1088: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach(), rather than paddle.to_tensor(sourceTensor).
+  return tensor(
+D:\ocrr\First_pipeline\.pipeline\lib\site-packages\paddle\utils\decorator_utils.py:420: Warning: 
+Non compatible API. Please refer to https://www.paddlepaddle.org.cn/documentation/docs/en/develop/guides/model_convert/convert_from_pytorch/api_difference/torch/torch.max.html first.
+  warnings.warn(
+DEBUG [pytesseract] ['tesseract', 'C:\\Users\\Asus-2025\\AppData\\Local\\Packages\\sandbox.{79d1823f-64d1-4e1c-a9b0-941a5fcbe4d6}\\AC\\Temp\\tess_mbl6lqn4_input.PNG', 'C:\\Users\\Asus-2025\\AppData\\Local\\Packages\\sandbox.{79d1823f-64d1-4e1c-a9b0-941a5fcbe4d6}\\AC\\Temp\\tess_mbl6lqn4', '-l', 'eng', '-c', 'tessedit_create_tsv=1', '--oem', '1', '--psm', '4', '--dpi', '300', '-c', 'preserve_interword_spaces=1', '-c', 'tessedit_do_invert=0']
+[1/3] page   1  scanned  paddle+vl           98.1%  135.8s  NEEDS REVIEW
+DEBUG [pytesseract] ['tesseract', 'C:\\Users\\Asus-2025\\AppData\\Local\\Packages\\sandbox.{79d1823f-64d1-4e1c-a9b0-941a5fcbe4d6}\\AC\\Temp\\tess_fsqg9uex_input.PNG', 'C:\\Users\\Asus-2025\\AppData\\Local\\Packages\\sandbox.{79d1823f-64d1-4e1c-a9b0-941a5fcbe4d6}\\AC\\Temp\\tess_fsqg9uex', '-l', 'osd', '--psm', '0', '-c', 'min_characters_to_try=40']
+Creating model: ('PP-DocBlockLayout', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-DocBlockLayout`.
+Creating model: ('PP-DocLayout_plus-L', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-DocLayout_plus-L`.
+Creating model: ('PP-OCRv5_server_det', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-OCRv5_server_det`.
+Creating model: ('PP-OCRv5_server_rec', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-OCRv5_server_rec`.
+Creating model: ('PP-LCNet_x1_0_table_cls', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-LCNet_x1_0_table_cls`.
+Creating model: ('SLANeXt_wired', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\SLANeXt_wired`.
+Creating model: ('SLANet_plus', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\SLANet_plus`.
+Creating model: ('RT-DETR-L_wired_table_cell_det', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\RT-DETR-L_wired_table_cell_det`.
+Creating model: ('RT-DETR-L_wireless_table_cell_det', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\RT-DETR-L_wireless_table_cell_det`.
+Creating model: ('PP-LCNet_x1_0_doc_ori', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-LCNet_x1_0_doc_ori`.
+Creating model: ('PP-LCNet_x1_0_textline_ori', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-LCNet_x1_0_textline_ori`.
+Creating model: ('PP-OCRv5_server_det', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-OCRv5_server_det`.
+Creating model: ('PP-OCRv5_server_rec', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-OCRv5_server_rec`.
+Creating model: ('PP-DocLayoutV3', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-DocLayoutV3`.
+Creating model: ('PaddleOCR-VL-1.6-0.9B', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PaddleOCR-VL-1.6`.
+Bucketed engine_config has no entry for resolved engine 'paddle_dynamic'; using an empty config for that engine.
+Loading configuration file C:\Users\Asus-2025\.paddlex\official_models\PaddleOCR-VL-1.6\config.json
+Loading weights file C:\Users\Asus-2025\.paddlex\official_models\PaddleOCR-VL-1.6\model.safetensors
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+Loaded weights file from disk, setting weights to model.
+All model checkpoint weights were used when initializing PaddleOCRVLForConditionalGeneration.
+
+All the weights of PaddleOCRVLForConditionalGeneration were initialized from the model checkpoint at C:\Users\Asus-2025\.paddlex\official_models\PaddleOCR-VL-1.6.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use PaddleOCRVLForConditionalGeneration for predictions without further training.
+Loading configuration file C:\Users\Asus-2025\.paddlex\official_models\PaddleOCR-VL-1.6\generation_config.json
+DEBUG [pytesseract] ['tesseract', 'C:\\Users\\Asus-2025\\AppData\\Local\\Packages\\sandbox.{79d1823f-64d1-4e1c-a9b0-941a5fcbe4d6}\\AC\\Temp\\tess_eqr45v7r_input.PNG', 'C:\\Users\\Asus-2025\\AppData\\Local\\Packages\\sandbox.{79d1823f-64d1-4e1c-a9b0-941a5fcbe4d6}\\AC\\Temp\\tess_eqr45v7r', '-l', 'eng', '-c', 'tessedit_create_tsv=1', '--oem', '1', '--psm', '4', '--dpi', '300', '-c', 'preserve_interword_spaces=1', '-c', 'tessedit_do_invert=0']
+[2/3] page   2  scanned  paddle+vl+tesseract  96.6%  90.71s  NEEDS REVIEW
+DEBUG [pytesseract] ['tesseract', 'C:\\Users\\Asus-2025\\AppData\\Local\\Packages\\sandbox.{79d1823f-64d1-4e1c-a9b0-941a5fcbe4d6}\\AC\\Temp\\tess_mz4kkb_d_input.PNG', 'C:\\Users\\Asus-2025\\AppData\\Local\\Packages\\sandbox.{79d1823f-64d1-4e1c-a9b0-941a5fcbe4d6}\\AC\\Temp\\tess_mz4kkb_d', '-l', 'osd', '--psm', '0', '-c', 'min_characters_to_try=40']
+Creating model: ('PP-DocBlockLayout', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-DocBlockLayout`.
+Creating model: ('PP-DocLayout_plus-L', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-DocLayout_plus-L`.
+Creating model: ('PP-OCRv5_server_det', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-OCRv5_server_det`.
+Creating model: ('PP-OCRv5_server_rec', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-OCRv5_server_rec`.
+Creating model: ('PP-LCNet_x1_0_table_cls', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-LCNet_x1_0_table_cls`.
+Creating model: ('SLANeXt_wired', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\SLANeXt_wired`.
+Creating model: ('SLANet_plus', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\SLANet_plus`.
+Creating model: ('RT-DETR-L_wired_table_cell_det', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\RT-DETR-L_wired_table_cell_det`.
+Creating model: ('RT-DETR-L_wireless_table_cell_det', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\RT-DETR-L_wireless_table_cell_det`.
+Creating model: ('PP-LCNet_x1_0_doc_ori', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-LCNet_x1_0_doc_ori`.
+Creating model: ('PP-LCNet_x1_0_textline_ori', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-LCNet_x1_0_textline_ori`.
+Creating model: ('PP-OCRv5_server_det', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-OCRv5_server_det`.
+Creating model: ('PP-OCRv5_server_rec', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-OCRv5_server_rec`.
+Creating model: ('PP-DocLayoutV3', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PP-DocLayoutV3`.
+Creating model: ('PaddleOCR-VL-1.6-0.9B', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\Asus-2025\.paddlex\official_models\PaddleOCR-VL-1.6`.
+Bucketed engine_config has no entry for resolved engine 'paddle_dynamic'; using an empty config for that engine.
+Loading configuration file C:\Users\Asus-2025\.paddlex\official_models\PaddleOCR-VL-1.6\config.json
+Loading weights file C:\Users\Asus-2025\.paddlex\official_models\PaddleOCR-VL-1.6\model.safetensors
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+use GQA - num_heads: 16- num_key_value_heads: 2
+Loaded weights file from disk, setting weights to model.
+All model checkpoint weights were used when initializing PaddleOCRVLForConditionalGeneration.
+
+All the weights of PaddleOCRVLForConditionalGeneration were initialized from the model checkpoint at C:\Users\Asus-2025\.paddlex\official_models\PaddleOCR-VL-1.6.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use PaddleOCRVLForConditionalGeneration for predictions without further training.
+Loading configuration file C:\Users\Asus-2025\.paddlex\official_models\PaddleOCR-VL-1.6\generation_config.json
+DEBUG [pytesseract] ['tesseract', 'C:\\Users\\Asus-2025\\AppData\\Local\\Packages\\sandbox.{79d1823f-64d1-4e1c-a9b0-941a5fcbe4d6}\\AC\\Temp\\tess_w8xsrr5a_input.PNG', 'C:\\Users\\Asus-2025\\AppData\\Local\\Packages\\sandbox.{79d1823f-64d1-4e1c-a9b0-941a5fcbe4d6}\\AC\\Temp\\tess_w8xsrr5a', '-l', 'eng', '-c', 'tessedit_create_tsv=1', '--oem', '1', '--psm', '4', '--dpi', '300', '-c', 'preserve_interword_spaces=1', '-c', 'tessedit_do_invert=0']
+[3/3] page   3  scanned  paddle+vl+tesseract  96.3% 138.33s  NEEDS REVIEW
+ pg type     source               rec%  ocr_w weak tbl    sec  warnings
+  1 scanned  paddle+vl            98.1    134    1   0  135.8  block 4: replaced by PaddleOCR-VL but there was no trust�
+  2 scanned  paddle+vl+tesseract   96.6    177    1   2  90.71  block 7: replaced by PaddleOCR-VL but there was no trus�
+  3 scanned  paddle+vl+tesseract   96.3    561    2   2 138.33  block 18: replaced by PaddleOCR-VL but there was no tru�
+
+pages needing attention:
+  page 1 [NEEDS REVIEW]
+    - block 4: replaced by PaddleOCR-VL but there was no trusted reference to verify it against, uncertain
+    - block 4: no clear improvement; kept existing text, uncertain
+    - needs_review: unresolved or unverified content remains after the PP-StructureV3, PaddleOCR-VL and Tesseract
+      tiers; review this page against the page image
+  page 2 [NEEDS REVIEW]
+    - block 7: replaced by PaddleOCR-VL but there was no trusted reference to verify it against, uncertain
+    - block 7: no Tesseract line overlaps; kept Paddle text, uncertain
+    - 2 Tesseract line(s), 107 characters, recovered outside Paddle blocks; verify their placement
+    - 1 peripheral block(s) (header/footer) remain uncertain but body text is OK
+    - needs_review: unresolved or unverified content remains after the PP-StructureV3, PaddleOCR-VL and Tesseract
+      tiers; review this page against the page image
+  page 3 [NEEDS REVIEW]
+    - block 18: replaced by PaddleOCR-VL but there was no trusted reference to verify it against, uncertain
+    - block 26: replaced by PaddleOCR-VL but there was no trusted reference to verify it against, uncertain
+    - block 18: no clear improvement; kept existing text, uncertain
+    - block 26: no Tesseract line overlaps; kept Paddle text, uncertain
+    - 2 Tesseract line(s), 107 characters, recovered outside Paddle blocks; verify their placement
+    - needs_review: unresolved or unverified content remains after the PP-StructureV3, PaddleOCR-VL and Tesseract
+      tiers; review this page against the page image
+
+3 page(s): paddle+vl 1, paddle+vl+tesseract 2 | 3 need review | wall 365.1s (page time 364.8s)
+markdown: D:\ocrr\First_pipeline\run_sample_3p_gpu_vl\sample.md
+internal: D:\ocrr\First_pipeline\run_sample_3p_gpu_vl\_internal\sample.pages.json
