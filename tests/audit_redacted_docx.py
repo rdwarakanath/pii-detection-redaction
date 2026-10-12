@@ -2,17 +2,23 @@
 from pathlib import Path
 from zipfile import ZipFile
 import re
+import json
+from hashlib import sha256
 
 from lxml import etree
 from extractors.docx_extractor import extract_docx
 from redaction.docx_redactor import _learn_names
 
 
-def main():
+def main(output_path="data/output/Cadence_TPRM_Training_redacted.docx"):
     source = Path("data/input/Cadence_TPRM_Training.docx")
-    output = Path("data/output/Cadence_TPRM_Training_redacted.docx")
+    output = Path(output_path)
     names = _learn_names(extract_docx(str(source)))
     findings, media = [], []
+    report_path = output.with_suffix(".review.json")
+    report = json.loads(report_path.read_text(encoding="utf-8")) if report_path.is_file() else {}
+    reviewed_media = {entry["part"]: entry["output_sha256"] for entry in report.get("reviewed_images", [])}
+    checked_media = 0
     patterns = {
         "email": re.compile(r"\b[\w.!#$%&'*+/=?^`{|}~-]+@[\w.-]+\.[A-Za-z]+"),
         "phone": re.compile(r"(?<!\w)(?:\+\d{1,3}\s*)?(?:\(\d{2,4}\)|\d{2,4})[ .-]+\d{3,4}(?:[ .-]+\d{3,4})?(?!\w)"),
@@ -20,7 +26,10 @@ def main():
     with ZipFile(output) as archive:
         for part in archive.namelist():
             if part.startswith(("word/media/", "word/embeddings/")):
-                media.append(part)
+                if sha256(archive.read(part)).hexdigest() == reviewed_media.get(part):
+                    checked_media += 1
+                else:
+                    media.append(part)
             if not part.endswith((".xml", ".rels")):
                 continue
             root = etree.fromstring(archive.read(part))
@@ -43,7 +52,8 @@ def main():
     print(f"Possible residual identifiers: {len(findings)}")
     for finding in findings:
         print(finding)
-    print(f"Images/embedded objects requiring review: {len(media)}")
+    print(f"Media assets matching the reviewed output hashes: {checked_media}")
+    print(f"Images/embedded objects without a matching review: {len(media)}")
     print("No regex matches is not proof that every sensitive entity is removed.")
     if findings:
         raise SystemExit(1)

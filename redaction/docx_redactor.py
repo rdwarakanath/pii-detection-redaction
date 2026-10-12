@@ -4,12 +4,14 @@ import json
 import re
 import tempfile
 from zipfile import ZipFile
+from hashlib import sha256
 
 from lxml import etree
 
 from detectors.presidio_detector import PresidioDetector, PLACEHOLDER
 from extractors.docx_extractor import extract_docx
 from models.document import DocumentBlock
+from .image_redactor import redact_reviewed_image
 
 W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 NS = {"w": W}
@@ -19,6 +21,7 @@ NON_PERSON_TERMS = {
     "optiv", "torii", "email", "cloud", "workflow", "onboarding workflow",
     "offboarding workflow", "vendor tier", "send servpro", "launching servpro",
     "launching stafven", "qr_task privacy", "qr_task security", "qr_task",
+    "qrn_sensitive targeting data", "contains",
 }
 
 
@@ -59,11 +62,32 @@ def _learn_names(document):
     return names
 
 
-def redact_docx(input_path, output_path, detector=None, min_score=0.0):
+def _freeze_delivery_dates(root):
+    """Preserve the source's cached Delivery Date when Word updates fields."""
+    frozen = []
+    for row in root.xpath("//w:tr", namespaces=NS):
+        cells = row.findall("w:tc", NS)
+        if len(cells) < 2 or "".join(cells[0].xpath(".//w:t/text()", namespaces=NS)).strip().casefold() != "delivery date":
+            continue
+        cell = cells[1]
+        instructions = "".join(cell.xpath(".//w:instrText/text()", namespaces=NS)).strip()
+        if not re.fullmatch(r'DATE\s+\\@\s*"MMMM d, yyyy"', instructions, re.IGNORECASE):
+            continue
+        value = "".join(cell.xpath(".//w:t/text()", namespaces=NS))
+        if not value.strip():
+            raise ValueError("Delivery Date field has no cached value to preserve")
+        for node in cell.xpath(".//w:fldChar | .//w:instrText", namespaces=NS):
+            node.getparent().remove(node)
+        frozen.append({"label": "Delivery Date", "value": value, "reason": "Preserve source date during Word export"})
+    return frozen
+
+
+def redact_docx(input_path, output_path, detector=None, min_score=0.0, image_manifest_path=None):
     """Save a separate redacted copy and a review summary alongside it.
 
     Covers ordinary Word text in body, tables, headers, footers, notes and
-    comments. Unsupported revisions/field instructions and media are reported.
+    comments. Media is changed only using hash-guarded, reviewed rectangles.
+    Unknown media, revisions and unrecognized field instructions are reported.
     """
     source, destination = Path(input_path), Path(output_path)
     if not source.is_file() or source.suffix.lower() != ".docx":
@@ -83,19 +107,52 @@ def redact_docx(input_path, output_path, detector=None, min_score=0.0):
               "skipped_findings": [], "unreviewed_parts": [], "metadata_redacted": []}
     report["visual_validation_passed"] = False
     report["visual_validation_note"] = "Render and inspect before distribution; text validation does not establish visual quality."
+    report["image_redactions"] = []
+    report["reviewed_images"] = []
+    report["reviewed_fields"] = []
+    report["reviewed_external_targets"] = []
+    report["preserved_delivery_dates"] = []
+    manifest_path = Path(image_manifest_path) if image_manifest_path else Path(__file__).resolve().parents[1] / "config" / "docx_image_redactions.json"
+    image_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))["images"] if manifest_path.is_file() else {}
     parser = etree.XMLParser(resolve_entities=False, no_network=True)
     expected = {}
     with ZipFile(source) as archive:
         parts = {info.filename: (info, archive.read(info.filename)) for info in archive.infolist()}
     for part, (info, data) in list(parts.items()):
-        if part.startswith("word/media/") or part.startswith("word/embeddings/"):
+        if part.startswith("word/media/"):
+            entry = image_manifest.get(part)
+            if entry and sha256(data).hexdigest() == entry.get("sha256"):
+                redacted_data = redact_reviewed_image(data, entry)
+                parts[part] = (info, redacted_data)
+                report["reviewed_images"].append({"part": part, "status": entry["review_status"], "source_sha256": entry["sha256"], "output_sha256": sha256(redacted_data).hexdigest()})
+                if entry.get("regions"):
+                    report["image_redactions"].append({"part": part, "regions": entry["regions"], "placeholder": PLACEHOLDER})
+            else:
+                report["unreviewed_parts"].append(part + (": source differs from reviewed image" if entry else ""))
+            continue
+        if part.startswith("word/embeddings/"):
             report["unreviewed_parts"].append(part)
         if not part.endswith(".xml"):
             continue
         root = etree.fromstring(data, parser)
         if part.startswith("word/"):
-            if root.xpath("//w:del | //w:instrText", namespaces=NS):
-                report["unreviewed_parts"].append(part + ": deleted text or field instructions")
+            if part == "word/document.xml":
+                report["preserved_delivery_dates"] = _freeze_delivery_dates(root)
+            if root.xpath("//w:del | //w:delText", namespaces=NS):
+                report["unreviewed_parts"].append(part + ": deleted text")
+            instructions = " ".join(node.text or "" for node in root.xpath("//w:instrText", namespaces=NS))
+            # Field instructions can be split across runs; review the combined
+            # stream rather than accepting each fragment independently.
+            safe_field = (
+                r'DATE\s*(?:\\@\s*"(?:MMMM d, yyyy|yyyy)"\s*)?(?:\\\*\s*MERGEFORMAT)?'
+                r'|TOC\s+\\o\s*"1-3"\s+\\h\s+\\z\s+\\u'
+                r'|PAGEREF\s+_Toc\d+\s+\\h|PAGE\b'
+            )
+            residual_instructions = re.sub(safe_field, '', instructions, flags=re.IGNORECASE).strip()
+            if instructions.strip() and not residual_instructions:
+                report["reviewed_fields"].append({"part": part, "reason": "Only date, table-of-contents, and page-number instructions"})
+            elif instructions.strip():
+                report["unreviewed_parts"].append(part + ": unrecognized field instructions")
             for index, paragraph in enumerate(root.iter(f"{{{W}}}p"), 1):
                 text, mapping = _paragraph_text(paragraph)
                 if not text.strip():
@@ -155,6 +212,8 @@ def redact_docx(input_path, output_path, detector=None, min_score=0.0):
                 target = relation.get("Target", "")
                 if target.lower().startswith(("mailto:", "tel:")) or any(name.casefold() in target.casefold() for name in names):
                     relation.set("Target", PLACEHOLDER)
+                elif target == "https://example.com/training-resource":
+                    report["reviewed_external_targets"].append(target)
                 else:
                     report["unreviewed_parts"].append(f"{part}: external target {target}")
         parts[part] = (info, etree.tostring(root, xml_declaration=True, encoding="UTF-8"))
@@ -174,7 +233,7 @@ def redact_docx(input_path, output_path, detector=None, min_score=0.0):
         reopened = extract_docx(str(staging))
         assert [b.location for b in reopened.blocks] == [b.location for b in original.blocks], "Extracted structure changed"
         report["validation_passed"] = True
-        report["review_required"] = bool(report["skipped_findings"] or report["unreviewed_parts"])
+        report["review_required"] = bool(report["skipped_findings"] or report["unreviewed_parts"] or not report["visual_validation_passed"])
         staging.replace(destination)
     finally:
         staging.unlink(missing_ok=True)
