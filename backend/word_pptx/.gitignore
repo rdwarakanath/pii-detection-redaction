@@ -1,0 +1,26 @@
+# Python environments and caches
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local credentials and editor settings
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+
+# Original input documents
+/data/input/
+
+# Ignore generated outputs except the two final documents
+/data/output/*
+!/data/output/Cadence_Financial_Group_Organizational_Pack_redacted.pptx
+!/data/output/Cadence_TPRM_Training_redacted.docx
+
+# Office lock files
+~$*

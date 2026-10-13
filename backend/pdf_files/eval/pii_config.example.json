@@ -1,0 +1,12 @@
+{
+  "weights": { "EMPLOYEE_ID": 5, "PERSON": 4 },
+  "allowlist": [
+    "245 Hudson Street, New York, NY",
+    "re:^(?:support|info|privacy)@yourcompany\\.com$"
+  ],
+  "rules": [
+    { "name": "vendor_id", "type": "EMPLOYEE_ID", "regex": "\\b[A-Z]{3}-[A-Z]{2}-\\d{4}\\b", "conf": 0.8 },
+    { "name": "customer_no", "type": "BANK_ACCOUNT", "regex": "\\b\\d{10}\\b", "conf": 0.4,
+      "context": "customer\\s*(?:no|number|id)", "context_boost": 0.5, "context_required": true }
+  ]
+}

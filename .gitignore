@@ -1,26 +1,43 @@
-# Python environments and caches
-venv/
-.venv/
+$source = "D:\ocrr\PII_redaction"
+
+@'
+# Python bytecode and caches
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
 .coverage
 htmlcov/
 
-# Local credentials and editor settings
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local environment files and credentials
 .env
 .env.*
 !.env.example
-.vscode/
-.idea/
+.streamlit/secrets.toml
+*.pem
+*.key
+*.p12
+*.pfx
 
-# Original input documents
-/data/input/
+# Runtime jobs, uploads, OCR data, and generated reports
+/backend/jobs/
+**/checkpoints/
+**/run_*/
+*.pages.json
+*.audit.json
+*.eval.json
+*.review.json
+processing_summary.json
+job.json
+*.log
 
-# Ignore generated outputs except the two final documents
-/data/output/*
-!/data/output/Cadence_Financial_Group_Organizational_Pack_redacted.pptx
-!/data/output/Cadence_TPRM_Training_redacted.docx
-
-# Office lock files
-~$*
+# OS files
+.DS_Store
+Thumbs.db
+'@ | Set-Content -LiteralPath (Join-Path $source ".gitignore") -Encoding utf8

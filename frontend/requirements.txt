@@ -1,0 +1,4 @@
+streamlit>=1.37.0
+requests>=2.31.0
+pytest>=7.4.0
+requests-mock>=1.11.0
